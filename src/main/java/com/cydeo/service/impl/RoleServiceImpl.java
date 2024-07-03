@@ -5,24 +5,28 @@ import com.cydeo.service.RoleService;
 
 import java.util.List;
 
-public class RoleServiceImpl implements RoleService {
+public class RoleServiceImpl extends AbstractMapService<RoleDTO,Long> implements RoleService {
+
+
     @Override
     public RoleDTO save(RoleDTO roleDTO) {
-        return null;
+        super.save(roleDTO.getId(),roleDTO);
+        return roleDTO;
     }
 
     @Override
     public RoleDTO findById(Long id) {
-        return null;
+        return super.findById(id);
     }
 
     @Override
     public List<RoleDTO> findAll() {
-        return null;
+        return super.findAll();
     }
 
     @Override
     public void deleteById(Long id) {
+        super.deleteById(id);
 
     }
 }

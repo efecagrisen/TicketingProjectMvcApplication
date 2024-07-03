@@ -8,14 +8,14 @@ import java.util.List;
 public interface UserService extends CrudService<UserDTO, String> {
 
     @Override
-    UserDTO save(UserDTO user);
+    UserDTO save(UserDTO object);
 
     @Override
-    UserDTO findById(String username);
+    UserDTO findById(String id);
 
     @Override
     List<UserDTO> findAll();
 
     @Override
-    void deleteById(String username);
+    void deleteById(String id);
 }

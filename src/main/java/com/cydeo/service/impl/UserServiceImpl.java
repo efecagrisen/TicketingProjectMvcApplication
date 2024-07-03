@@ -5,24 +5,28 @@ import com.cydeo.service.UserService;
 
 import java.util.List;
 
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends AbstractMapService<UserDTO, String> implements UserService{
+
     @Override
-    public UserDTO save(UserDTO userDTO) {
-        return null;
+    public UserDTO save(UserDTO user) {
+        super.save(user.getUsername(),user);
+        return user;
     }
 
     @Override
     public UserDTO findById(String username) {
-        return null;
+        return super.findById(username);
+
     }
 
     @Override
     public List<UserDTO> findAll() {
-        return null;
+        return super.findAll();
     }
 
     @Override
     public void deleteById(String username) {
+        super.deleteById(username);
 
     }
 }
