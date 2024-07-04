@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public String insertUser(@ModelAttribute ("user") UserDTO userDTO, Model model){
+    public String insertUser(@ModelAttribute ("user") UserDTO userDTO){
 
         userService.save(userDTO);
 
