@@ -54,10 +54,18 @@ public class ProjectController {
     @GetMapping("/complete/{projectCode}")
     public String completeProject(@PathVariable ("projectCode") String projectCode){
 
-        projectService.findById(projectCode).setProjectStatus(Status.COMPLETE);
+        projectService.completeProject(projectService.findById(projectCode));
 
         return "redirect:/project/create";
     }
+
+//    @GetMapping("/complete/{projectCode}") // implementation of this -> //    void completeProject(String id); //this is what I did myself
+//    public String completeProject(@PathVariable ("projectCode") String projectCode){
+//
+//        projectService.completeProject(projectCode);
+//
+//        return "redirect:/project/create";
+//    }
 
 
 
