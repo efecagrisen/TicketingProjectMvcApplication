@@ -51,6 +51,14 @@ public class ProjectController {
         return "redirect:/project/create";
     }
 
+    @GetMapping("/complete/{projectCode}")
+    public String completeProject(@PathVariable ("projectCode") String projectCode){
+
+        projectService.findById(projectCode).setProjectStatus(Status.COMPLETE);
+
+        return "redirect:/project/create";
+    }
+
 
 
 }
