@@ -27,7 +27,7 @@ public class ProjectController {
     public String projectCreate(Model model){
 
         model.addAttribute("project", new ProjectDTO());
-        model.addAttribute("assignedManager", userService.findAll().stream().filter(manager -> manager.getRole().getDescription().equalsIgnoreCase("Manager")).collect(Collectors.toList()));
+        model.addAttribute("assignedManager", userService.findManagers());
         model.addAttribute("status", Status.values());
         model.addAttribute("projectList",projectService.findAll());
 
