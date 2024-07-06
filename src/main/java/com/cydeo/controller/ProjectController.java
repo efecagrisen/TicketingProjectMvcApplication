@@ -28,7 +28,6 @@ public class ProjectController {
 
         model.addAttribute("project", new ProjectDTO());
         model.addAttribute("assignedManager", userService.findManagers());
-        model.addAttribute("status", Status.values());
         model.addAttribute("projectList",projectService.findAll());
 
         return "/project/create";
@@ -66,6 +65,26 @@ public class ProjectController {
 //
 //        return "redirect:/project/create";
 //    }
+
+
+    @GetMapping("/update/{projectCode}")
+    public String editProject(Model model, @PathVariable ("projectCode") String projectCode){
+
+        model.addAttribute("project",projectService.findById(projectCode));
+        model.addAttribute("assignedManager", userService.findManagers());
+        model.addAttribute("projectList",projectService.findAll());
+
+        return "/project/update";
+    }
+
+
+    @PostMapping("/update")
+    public String updateProject(@ModelAttribute ("project") ProjectDTO projectDTO){
+
+        projectService.update(projectDTO);
+
+        return "redirect:/project/create";
+    }
 
 
 
