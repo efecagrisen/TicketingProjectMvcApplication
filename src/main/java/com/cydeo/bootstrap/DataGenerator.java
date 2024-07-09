@@ -11,6 +11,7 @@ import com.cydeo.service.RoleService;
 import com.cydeo.service.TaskService;
 import com.cydeo.service.UserService;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -23,7 +24,7 @@ public class DataGenerator implements CommandLineRunner {
     private final ProjectService projectService;
     private final TaskService taskService;
 
-    public DataGenerator(RoleService roleService, UserService userService, ProjectService projectService, TaskService taskService) {
+    public DataGenerator(RoleService roleService, UserService userService, @Lazy ProjectService projectService, TaskService taskService) {
         this.roleService = roleService;
         this.userService = userService;
         this.projectService = projectService;
